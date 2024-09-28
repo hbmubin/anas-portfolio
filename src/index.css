@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Gowun+Batang:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .defaultContainer {
+    @apply container mx-auto max-w-[1140px];
+  }
+  .subTitle {
+    @apply text-3xl tracking-wide;
+  }
+  .title {
+    @apply text-[54px] tracking-wide;
+  }
+  .grayTitle {
+    @apply uppercase text-xl tracking-wider text-textGray;
+  }
+}
+
+.active {
+  font-weight: 600;
+}
