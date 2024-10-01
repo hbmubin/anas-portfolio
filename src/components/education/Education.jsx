@@ -7,54 +7,57 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="bg-bodyBlack pt-[92px] pb-[530px] relative"
+      className="bg-bodyBlack pt-[92px] pb-[530px] relative lg:px-0 px-4"
     >
       <div className="defaultContainer">
         <div>
-          <div className="grid grid-cols-2">
-            <h2 className="grayTitle">Education</h2>
-            <h2 className="grayTitle">Certification</h2>
-          </div>
-          <div className="grid grid-cols-2">
-            <div className="flex flex-col mt-[74px] gap-20">
-              <EduList
-                title="University of Dhaka"
-                des="B.A. degree. public administration
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-0">
+            <div>
+              <h2 className="grayTitle">Education</h2>
+              <div className="flex flex-col lg:mt-[74px] mt-14 lg:gap-20 gap-10">
+                <EduList
+                  title="University of Dhaka"
+                  des="B.A. degree. public administration
 Graduated 2022"
-              ></EduList>
-              <EduList
-                title="Jhalokathi N. S. Kamil madrasah"
-                des="Certificate degree. higher secondary certificate
+                ></EduList>
+                <EduList
+                  title="Jhalokathi N. S. Kamil madrasah"
+                  des="Certificate degree. higher secondary certificate
 Graduated 2016"
-              ></EduList>
-              <EduList
-                title="Dhaka Alia Madrasah"
-                des="B.A. degree. theological studies
+                ></EduList>
+                <EduList
+                  title="Dhaka Alia Madrasah"
+                  des="B.A. degree. theological studies
 Graduated 2023"
-              ></EduList>
+                ></EduList>
+              </div>
             </div>
-            <div className="flex flex-col mt-[74px] gap-20">
-              <EduList
-                title="Professional Email Marketing on MailChimp"
-                des="Graduated 2020"
-              ></EduList>
-              <EduList
-                title="Klaviyo Advanced Email Marketing"
-                des="Codeman BD Graduated 2020"
-              ></EduList>
-              <EduList
-                title="Shopify ecommerce website Development"
-                des="Codeman BD Graduated 2020"
-              ></EduList>
+            <div>
+              <h2 className="grayTitle">Certification</h2>
+
+              <div className="flex flex-col lg:mt-[74px] mt-14 lg:gap-20 gap-10">
+                <EduList
+                  title="Professional Email Marketing on MailChimp"
+                  des="Graduated 2020"
+                ></EduList>
+                <EduList
+                  title="Klaviyo Advanced Email Marketing"
+                  des="Codeman BD Graduated 2020"
+                ></EduList>
+                <EduList
+                  title="Shopify ecommerce website Development"
+                  des="Codeman BD Graduated 2020"
+                ></EduList>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="container max-w-[1034px] mx-auto absolute top-2/3 left-1/2 -translate-x-1/2 ">
+      <div className="container max-w-[1034px] mx-auto absolute lg:top-2/3 top-3/4 left-1/2 -translate-x-1/2 lg:px-0 px-4">
         <div>
           <h1 className="title text-white mb-8">What clients say </h1>
         </div>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-8">
           <ReviewCard
             star="5"
             review="My order was completed almost 3 days early. For the few days he worked on my order, he set up my email flows and stayed in communication even with the time difference, I wasn't waiting hrs for a reply. He went back and did revisions for me, and I am grateful. Will definitely hire again next month for more flows."
