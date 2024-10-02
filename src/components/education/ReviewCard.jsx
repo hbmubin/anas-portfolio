@@ -6,7 +6,7 @@ const ReviewCard = ({ review, name, star, flag, country }) => {
       <span>
         <BiSolidQuoteAltLeft size={58} color="#60574c" />
       </span>
-      <p className="text-textGray text-lg my-5 flex-1">{review}</p>
+      <p className="text-textGray lg:text-lg text-base my-5 flex-1">{review}</p>
       <h2 className="text-[#60574c] font-bold text-2xl">{name}</h2>
       <div className="flex items-center gap-2 mt-2">
         <span>

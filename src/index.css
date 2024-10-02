@@ -6,7 +6,7 @@
 
 @layer components {
   .defaultContainer {
-    @apply container mx-auto max-w-[1140px];
+    @apply container mx-auto xl:max-w-[1140px];
   }
   .subTitle {
     @apply lg:text-3xl text-2xl tracking-wide;

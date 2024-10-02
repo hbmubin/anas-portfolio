@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <main className="overflow-x-hidden">
+      <main className="">
         <Banner></Banner>
         <About></About>
         <Education></Education>

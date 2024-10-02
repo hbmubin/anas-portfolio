@@ -7,7 +7,7 @@ import { Link } from "react-scroll";
 
 const About = () => {
   return (
-    <section id="about" className="bg-bodyGray pt-24 pb-20 lg:px-0 px-4">
+    <section id="about" className="bg-bodyGray pt-24 pb-20">
       <div className="defaultContainer">
         <article>
           <h2 className="grayTitle">A bit about me</h2>
@@ -23,7 +23,7 @@ const About = () => {
             to review my previous project results
           </p>
         </article>
-        <div className="my-20 grid lg:grid-cols-4 grid-cols-1 gap-8">
+        <div className="my-20 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
           <SkillCard img={mailchimp} title="Mailchimp"></SkillCard>
           <SkillCard img={klaviyo} title="klaviyo"></SkillCard>
           <SkillCard img={shopify} title="shopify"></SkillCard>

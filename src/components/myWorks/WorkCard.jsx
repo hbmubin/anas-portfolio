@@ -1,6 +1,17 @@
+import { motion } from "framer-motion";
+
 const WorkCard = ({ img, title }) => {
   return (
-    <article className="border-2 border-[#d8bf93]">
+    <motion.article
+      initial={{ opacity: 0.2 }}
+      animate={{
+        opacity: 1,
+        width: "auto",
+        height: "auto",
+        transition: { duration: 2 },
+      }}
+      className="border-2 border-[#d8bf93]"
+    >
       <div className="relative group overflow-hidden">
         <img
           className="max-w-full group-hover:scale-[1.02] duration-300"
@@ -14,7 +25,7 @@ const WorkCard = ({ img, title }) => {
           </span>
         </span>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-scroll";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const Header = () => {
   const navLinksdata = [
@@ -28,8 +29,34 @@ const Header = () => {
   ];
   const [showMenu, setShowMenu] = useState(false);
 
+  const { scrollY } = useScroll();
+
+  const [hidden, setHidden] = useState(false);
+
+  // useEffect(() => {
+  //   const unsub = scrollY.on("change", (latest) => console.log(latest));
+  //   return () => unsub();
+  // }, [scrollY]);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+    console.log(latest, previous);
+  });
+
   return (
-    <header className="fixed w-full z-50 bg-white px-4 lg:px-0">
+    <motion.header
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed w-full z-50 bg-white "
+    >
       <div className="defaultContainer  py-4 flex justify-between items-center">
         <div>
           <a
@@ -40,7 +67,7 @@ const Header = () => {
           </a>
         </div>
         <div className="flex lg:gap-8 gap-4 items-center">
-          <nav className="font-pageFont hidden lg:block">
+          <nav className="font-pageFont hidden md:block">
             <ul className="flex gap-6 ">
               {navLinksdata.map((item) => (
                 <li
@@ -82,8 +109,10 @@ const Header = () => {
             <FiMenu size={34}></FiMenu>
           </span>
           {showMenu && (
-            <div
-              className={`w-[80%] h-screen overflow-scroll fixed top-0 md:hidden left-0 bg-bodyBlack p-4 scrollbar-hide`}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "0", transition: { duration: 0.3 } }}
+              className={`w-[50%] h-screen overflow-scroll fixed top-0 md:hidden left-0 bg-bodyBlack p-4 scrollbar-hide `}
             >
               <div className="flex justify-end">
                 <span
@@ -113,11 +142,11 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

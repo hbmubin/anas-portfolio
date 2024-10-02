@@ -7,7 +7,7 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="bg-bodyBlack pt-[92px] pb-[530px] relative lg:px-0 px-4"
+      className="bg-bodyBlack pt-[92px] pb-[530px] relative"
     >
       <div className="defaultContainer">
         <div>
@@ -53,7 +53,7 @@ Graduated 2023"
           </div>
         </div>
       </div>
-      <div className="container max-w-[1034px] mx-auto absolute lg:top-2/3 top-3/4 left-1/2 -translate-x-1/2 lg:px-0 px-4">
+      <div className="container max-w-[1034px] mx-auto absolute lg:top-2/3 top-3/4 left-1/2 -translate-x-1/2">
         <div>
           <h1 className="title text-white mb-8">What clients say </h1>
         </div>

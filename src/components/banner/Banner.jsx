@@ -7,9 +7,9 @@ const Banner = () => {
     <div>
       <section
         id="home"
-        className=" bg-bodyGray w-full font-pageFont pt-20 lg:pt-0  lg:px-0 px-4"
+        className=" bg-bodyGray w-full font-pageFont pt-20 lg:pt-0 "
       >
-        <div className="container mx-auto max-w-[1100px] lg:flex items-end min-h-screen py-12">
+        <div className="container mx-auto lg:max-w-[1100px] lg:flex items-end min-h-screen py-12">
           <div className="flex flex-col lg:gap-10 gap-20 lg:w-1/2">
             <div>
               <h1 className="lg:text-5xl text-4xl font-light">
@@ -31,8 +31,8 @@ const Banner = () => {
                 </Link>
               </button>
             </div>
-            <div className="flex flex-col lg:flex-row gap-10">
-              <div className="lg:w-1/2">
+            <div className="flex flex-col md:flex-row gap-10 items-end">
+              <div className="md:w-1/2">
                 <h1 className="text-5xl lg:text-7xl text-[#8e7f6e] font-semibold tracking-wide">
                   300+
                 </h1>
@@ -45,7 +45,7 @@ const Banner = () => {
                   drive business growth.
                 </p>
               </div>
-              <div className="lg:w-1/2">
+              <div className="md:w-1/2">
                 <h1 className="text-5xl lg:text-7xl text-[#8e7f6e] font-semibold tracking-wide">
                   500+
                 </h1>
@@ -60,9 +60,9 @@ const Banner = () => {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 flex justify-end">
             <img
-              className="max-w-full relative translate-y-[48px]"
+              className="  max-w-full  relative translate-y-[48px]"
               src={profile}
               alt="profile"
             />

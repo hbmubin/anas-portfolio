@@ -1,6 +1,6 @@
 const Strengths = () => {
   return (
-    <section className="bg-bodyBlack lg:px-0 px-4">
+    <section className="bg-bodyBlack">
       <div className="defaultContainer pt-[78px] pb-[108px]">
         <div>
           <h2 className="grayTitle">My Strengths</h2>
