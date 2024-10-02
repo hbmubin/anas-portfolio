@@ -18,7 +18,7 @@ const Banner = () => {
               <h1 className="lg:text-7xl text-5xl font-nameFont font-bold mt-2 mb-3">
                 Anas Munir
               </h1>
-              <p className="mb-5">Marketing Automation Manager</p>
+              <p className="mb-5">E-mail Marketing Expert</p>
               <button className="py-3 px-9 hover:bg-[#60574c] tracking-wide bg-bodyBlack text-[#fff8ec]">
                 <Link
                   to="contact"

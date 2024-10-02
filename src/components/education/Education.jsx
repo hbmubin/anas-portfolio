@@ -17,7 +17,7 @@ const Education = () => {
               <div className="flex flex-col lg:mt-[74px] mt-14 lg:gap-20 gap-10">
                 <EduList
                   title="University of Dhaka"
-                  des="B.A. degree. public administration
+                  des="B.S.S in public administration
 Graduated 2022"
                 ></EduList>
                 <EduList
@@ -27,7 +27,7 @@ Graduated 2016"
                 ></EduList>
                 <EduList
                   title="Dhaka Alia Madrasah"
-                  des="B.A. degree. theological studies
+                  des="B.I.T.S
 Graduated 2023"
                 ></EduList>
               </div>

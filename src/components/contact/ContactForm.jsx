@@ -1,32 +1,43 @@
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { Spinner } from "@material-tailwind/react";
+import { useRef, useState } from "react";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
-  // const handleForm = (e) => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const email = form.email.value;
-  //   const name = form.name.value;
-  //   const message = form.message.value;
-  //   console.log(email, name, message);
-  // };
   const form = useRef();
+
+  const [checkSubmit, setCheckSubmit] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setCheckSubmit(true);
     emailjs
       .sendForm("service_ebc0yi6", "template_8hnesig", form.current, {
         publicKey: "na751eZoc6R7VepZB",
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          setCheckSubmit(false);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Email sent",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          setCheckSubmit(false);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Error",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       );
   };
+
   return (
     <div className="lg:px-[70px] px-10 py-12 lg:py-0 flex-1 flex items-center justify-center bg-white">
       <form
@@ -61,21 +72,13 @@ const ContactForm = () => {
             required
           ></textarea>
         </span>
-        <input
-          className="bg-[#8e7f6e] w-full inline-flex text-white uppercase py-4 text-lg tracking-wider font-medium hover:bg-bodyBlack cursor-pointer"
+        <button
+          className="bg-[#8e7f6e] w-full text-white uppercase py-4 text-lg tracking-wider font-medium hover:bg-bodyBlack cursor-pointer flex items-center justify-center"
           type="submit"
-          value="Submit"
-        />
+        >
+          {checkSubmit == true ? <Spinner></Spinner> : "Submit"}
+        </button>
       </form>
-      {/* <form ref={form} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input type="text" name="user_name" />
-        <label>Email</label>
-        <input type="email" name="user_email" />
-        <label>Message</label>
-        <textarea name="message" />
-        <input type="submit" value="Send" />
-      </form> */}
     </div>
   );
 };
