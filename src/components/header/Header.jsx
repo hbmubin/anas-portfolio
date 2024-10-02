@@ -44,7 +44,6 @@ const Header = () => {
     } else {
       setHidden(false);
     }
-    console.log(latest, previous);
   });
 
   return (

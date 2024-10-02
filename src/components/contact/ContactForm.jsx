@@ -1,18 +1,42 @@
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+
 const ContactForm = () => {
-  const handleForm = (e) => {
+  // const handleForm = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const email = form.email.value;
+  //   const name = form.name.value;
+  //   const message = form.message.value;
+  //   console.log(email, name, message);
+  // };
+  const form = useRef();
+  const sendEmail = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const name = form.name.value;
-    const message = form.message.value;
-    console.log(email, name, message);
+
+    emailjs
+      .sendForm("service_ebc0yi6", "template_8hnesig", form.current, {
+        publicKey: "na751eZoc6R7VepZB",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
   };
   return (
     <div className="lg:px-[70px] px-10 py-12 lg:py-0 flex-1 flex items-center justify-center bg-white">
-      <form onSubmit={handleForm} className="flex w-full flex-col gap-[30px]">
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="flex w-full flex-col gap-[30px]"
+      >
         <span className="border-b-[3px] border-b-[#d0c7bd] p-3">
           <input
-            name="name"
+            name="from_name"
             className="w-full placeholder:text-lg outline-none"
             placeholder="Enter your Name"
             type="text"
@@ -21,7 +45,7 @@ const ContactForm = () => {
         </span>
         <span className="border-b-[3px] border-b-[#d0c7bd] p-3">
           <input
-            name="email"
+            name="from_email"
             placeholder="Enter a valid email address"
             className="w-full placeholder:text-lg outline-none"
             type="email"
@@ -43,6 +67,15 @@ const ContactForm = () => {
           value="Submit"
         />
       </form>
+      {/* <form ref={form} onSubmit={sendEmail}>
+        <label>Name</label>
+        <input type="text" name="user_name" />
+        <label>Email</label>
+        <input type="email" name="user_email" />
+        <label>Message</label>
+        <textarea name="message" />
+        <input type="submit" value="Send" />
+      </form> */}
     </div>
   );
 };
