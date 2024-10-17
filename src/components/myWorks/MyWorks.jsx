@@ -3,6 +3,10 @@ import card1 from "./../../assets/IMG-20240929-WA0021.jpg";
 import card2 from "./../../assets/IMG-20240929-WA0024.jpg";
 import card3 from "./../../assets/IMG-20240929-WA0025.jpg";
 import card4 from "./../../assets/IMG-20240929-WA0028.jpg";
+import card5 from "./../../assets/IMG-20240929-WA0016.jpg";
+import card6 from "./../../assets/IMG-20240929-WA0018.jpg";
+import card7 from "./../../assets/IMG-20240929-WA0023.jpg";
+import card8 from "./../../assets/IMG-20240929-WA0035.jpg";
 
 const MyWorks = () => {
   return (
@@ -16,6 +20,10 @@ const MyWorks = () => {
           <WorkCard img={card2} title="Email Automations"></WorkCard>
           <WorkCard img={card3} title="Email Marketing"></WorkCard>
           <WorkCard img={card4} title="Email & SMS Marketing"></WorkCard>
+          <WorkCard img={card5} title="Email & SMS Marketing"></WorkCard>
+          <WorkCard img={card6} title="Email Automations"></WorkCard>
+          <WorkCard img={card7} title="Text Message Marketing"></WorkCard>
+          <WorkCard img={card8} title="Email Automationsss"></WorkCard>
         </div>
       </div>
     </section>

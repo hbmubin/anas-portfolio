@@ -33,10 +33,6 @@ const Header = () => {
 
   const [hidden, setHidden] = useState(false);
 
-  // useEffect(() => {
-  //   const unsub = scrollY.on("change", (latest) => console.log(latest));
-  //   return () => unsub();
-  // }, [scrollY]);
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
     if (latest > previous && latest > 150) {
@@ -54,8 +50,11 @@ const Header = () => {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed w-full z-50 bg-white "
+      className="sticky w-full z-50 top-0 bg-white "
     >
+      {showMenu && (
+        <div className="h-[140vh] w-screen fixed left-0 top-0 bg-[#00000040] duration-300 -z-40 block md:hidden "></div>
+      )}
       <div className="defaultContainer  py-4 flex justify-between items-center">
         <div>
           <a
@@ -87,7 +86,7 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <div>
+          {/* <div>
             <button>
               <Link
                 className=" lg:px-5 py-2 px-4 bg-bodyBlack hover:bg-[#60574c] text-[#fff8ec] text-sm lg:text-base inline-flex"
@@ -100,49 +99,51 @@ const Header = () => {
                 Get in Touch
               </Link>
             </button>
-          </div>
+          </div> */}
           <span
             className="cursor-pointer block md:hidden"
             onClick={() => setShowMenu(!showMenu)}
           >
             <FiMenu size={34}></FiMenu>
           </span>
-          {showMenu && (
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: "0", transition: { duration: 0.3 } }}
-              className={`w-[50%] h-screen overflow-scroll fixed top-0 md:hidden left-0 bg-bodyBlack p-4 scrollbar-hide `}
-            >
-              <div className="flex justify-end">
-                <span
-                  onClick={() => setShowMenu(false)}
-                  className="p-4 cursor-pointer"
+
+          <div
+            className={`w-[50%] ${
+              showMenu ? "translate-x-0" : "-translate-x-96"
+            } min-h-[140vh] fixed top-0  left-0 bg-bodyBlack p-4 scrollbar-hide duration-300 block md:hidden`}
+          >
+            <div className="flex justify-between items-center pt-1 pb-5">
+              <h2 className="font-logoFont sm:text-2xl text-xl text-textGray">
+                Anas Munir
+              </h2>
+              <span
+                onClick={() => setShowMenu(false)}
+                className=" cursor-pointer"
+              >
+                <CgClose color="#fff" size={28}></CgClose>
+              </span>
+            </div>
+            <ul className="flex flex-col gap-4">
+              {navLinksdata.map((item) => (
+                <li
+                  key={item._id}
+                  className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300"
                 >
-                  <CgClose color="#fff" size={28}></CgClose>
-                </span>
-              </div>
-              <ul className="flex flex-col gap-4">
-                {navLinksdata.map((item) => (
-                  <li
-                    key={item._id}
-                    className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300"
+                  <Link
+                    onClick={() => setShowMenu(false)}
+                    activeClass="active"
+                    to={item.link}
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
                   >
-                    <Link
-                      onClick={() => setShowMenu(false)}
-                      activeClass="active"
-                      to={item.link}
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </motion.header>

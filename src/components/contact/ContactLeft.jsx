@@ -1,6 +1,6 @@
 const ContactLeft = () => {
   return (
-    <div className="lg:w-[45%] bg-bodyBlack px-[34px] pt-16 pb-24 text-white">
+    <div className="lg:w-[45%] bg-bodyBlack sm:px-[34px] px-7  pt-16 pb-24 text-white">
       <h1 className="lg:text-5xl text-4xl leading-tight lg:mb-14 mb-10">
         Do you have any Project? Let’s Talk
       </h1>

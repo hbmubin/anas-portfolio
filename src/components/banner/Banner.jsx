@@ -5,26 +5,24 @@ import Strengths from "./Strengths";
 const Banner = () => {
   return (
     <div>
-      <section
-        id="home"
-        className=" bg-bodyGray w-full font-pageFont pt-20 lg:pt-0 "
-      >
-        <div className="container mx-auto lg:max-w-[1100px] lg:flex items-end min-h-screen py-12">
+      <section id="home" className=" bg-bodyGray w-full font-pageFont  ">
+        <div className="container mx-auto lg:max-w-[1100px] lg:flex items-end bannerHeight py-12">
           <div className="flex flex-col lg:gap-10 gap-20 lg:w-1/2">
             <div>
-              <h1 className="lg:text-5xl text-4xl font-light">
+              <h1 className="md:text-5xl text-4xl font-light">
                 Hello, I{"'"}am
               </h1>
-              <h1 className="lg:text-7xl text-5xl font-nameFont font-bold mt-2 mb-3">
+              <h1 className="md:text-7xl text-5xl font-nameFont font-bold mt-2 mb-3">
                 Anas Munir
               </h1>
-              <p className="mb-5">E-mail Marketing Expert</p>
-              <button className="py-3 px-9 hover:bg-[#60574c] tracking-wide bg-bodyBlack text-[#fff8ec]">
+              <p className="mb-5">Email Marketing Expert</p>
+              <button>
                 <Link
+                  className="py-3 px-9 hover:bg-[#60574c] tracking-wide bg-bodyBlack text-[#fff8ec] inline-flex"
                   to="contact"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={30}
                   duration={500}
                 >
                   Get in Touch

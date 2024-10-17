@@ -39,7 +39,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="lg:px-[70px] px-10 py-12 lg:py-0 flex-1 flex items-center justify-center bg-white">
+    <div className="sm:px-[70px] px-7 py-12 lg:py-0 flex-1 flex items-center justify-center bg-white">
       <form
         ref={form}
         onSubmit={sendEmail}
