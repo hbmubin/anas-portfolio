@@ -16,6 +16,7 @@ const WorkCard = ({ img, title }) => {
         <img
           className="max-w-full group-hover:scale-[1.02] duration-300"
           src={img}
+          alt={title}
         />
         <span className="bg-bodyGray absolute h-full w-full top-0 left-0 opacity-30 group-hover:opacity-0 duration-300"></span>
         <span className="bg-[#00000077] absolute lg:h-24 h-20 w-full bottom-0 left-0 p-4 group-hover:bg-[#00000085] duration-300 transition-colors">

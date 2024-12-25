@@ -9,7 +9,7 @@ const Footer = () => {
         <a
           className="hover:text-blue-700 duration-200 underline text-sm"
           target="_blank"
-          href="https://hbmubin.github.io/me/"
+          href="https://hbmubin.netlify.app"
         >
           HB Mubin
         </a>

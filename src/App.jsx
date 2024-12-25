@@ -5,6 +5,7 @@ import Education from "./components/education/Education";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import MyWorks from "./components/myWorks/MyWorks";
+import ArrowTop from "./components/ArrowTop";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Contact></Contact>
       </main>
       <Footer></Footer>
+      <ArrowTop></ArrowTop>
     </>
   );
 }
