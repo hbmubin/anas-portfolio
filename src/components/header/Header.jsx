@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { FiMenu } from "react-icons/fi";
 import { Link } from "react-scroll";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { AuthContext } from "../../private/AuthProvider";
+import { BounceLoader } from "react-spinners";
 
 const Header = () => {
-  const navLinksdata = [
+
+  const {logOut, user}= useContext(AuthContext)
+
+  const navLinksData = [
     {
       _id: 1001,
       title: "Home",
@@ -58,7 +63,7 @@ const Header = () => {
       <div className="defaultContainer  py-4 flex justify-between items-center">
         <div>
           <a
-            href="#"
+            href="/"
             className="font-logoFont lg:text-3xl text-2xl text-neutral-400 "
           >
             Anas Munir
@@ -66,8 +71,8 @@ const Header = () => {
         </div>
         <div className="flex lg:gap-8 gap-4 items-center">
           <nav className="font-pageFont hidden md:block">
-            <ul className="flex gap-6 ">
-              {navLinksdata.map((item) => (
+            <ul className="flex gap-6 items-center">
+              {navLinksData.map((item) => (
                 <li
                   className="text-textGray text-lg font-normal cursor-pointer "
                   key={item._id}
@@ -84,22 +89,10 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
+              {user && <a href="./admin-dashboard/profile" className="text-lg bg-bodyGray text-white px-4 py-1 active:scale-[0.99]">Dashboard</a>}
+              {user && <button type="button" onClick={logOut} className="text-lg bg-amber-500 text-white px-4 py-1 active:scale-[0.99]">Logout</button>}
             </ul>
           </nav>
-          {/* <div>
-            <button>
-              <Link
-                className=" lg:px-5 py-2 px-4 bg-bodyBlack hover:bg-[#60574c] text-[#fff8ec] text-sm lg:text-base inline-flex"
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Get in Touch
-              </Link>
-            </button>
-          </div> */}
           <span
             className="cursor-pointer block md:hidden"
             onClick={() => setShowMenu(!showMenu)}
@@ -108,14 +101,14 @@ const Header = () => {
           </span>
 
           <div
-            className={`w-[50%] ${
-              showMenu ? "translate-x-0" : "-translate-x-96"
+            className={`w-[65%] ${
+              showMenu ? "translate-x-0" : "-translate-x-[200%]"
             } min-h-[140vh] fixed top-0  left-0 bg-bodyBlack p-4 scrollbar-hide duration-300 block md:hidden`}
           >
             <div className="flex justify-between items-center pt-1 pb-5">
-              <h2 className="font-logoFont sm:text-2xl text-xl text-textGray">
+              <a href="/" className="font-logoFont sm:text-2xl text-xl text-textGray">
                 Anas Munir
-              </h2>
+              </a>
               <span
                 onClick={() => setShowMenu(false)}
                 className=" cursor-pointer"
@@ -124,7 +117,7 @@ const Header = () => {
               </span>
             </div>
             <ul className="flex flex-col gap-4">
-              {navLinksdata.map((item) => (
+              {navLinksData.map((item) => (
                 <li
                   key={item._id}
                   className="text-base font-normal text-gray-400 tracking-wide cursor-pointer hover:text-designColor duration-300"
@@ -143,6 +136,10 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 grid grid-cols-2">
+            {user ? <a href="/admin-dashboard/profile" className="text-sm bg-textGray text-neutral-700 font-medium text-center py-2 active:scale-[0.99]">Dashboard</a> : <BounceLoader size={26} color="currentColor" />}
+            {user ? <button type="button" onClick={logOut} className="text-sm bg-amber-600 text-neutral-700 font-medium text-center py-2 active:scale-[0.99]">Logout</button> : <BounceLoader size={26} color="currentColor" />}
+            </div>
           </div>
         </div>
       </div>

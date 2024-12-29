@@ -22,7 +22,7 @@ const ArrowTop = () => {
     }
 
     return (
-        <button onClick={scrollTop} type="button" className={`fixed bottom-10 right-20 transition-transform duration-300 ${isVisible ? 'translate-y-0' : 'translate-y-32 opacity-0 pointer-events-none'}`}>
+        <button onClick={scrollTop} type="button" className={`fixed sm:bottom-10 sm:right-20 bottom-3 right-3 transition-transform duration-300 ${isVisible ? 'translate-y-0' : 'translate-y-32 opacity-0 pointer-events-none'}`}>
             <div className="bg-black size-14 grid items-center justify-center rounded bg-opacity-10 text-neutral-600"><FaArrowUp color="currentColor" />
             </div>
         </button>

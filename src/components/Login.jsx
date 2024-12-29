@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../private/AuthProvider";
+import { BounceLoader } from "react-spinners";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {user , setUser, setLoading, loading} = useContext(AuthContext)
@@ -15,7 +17,7 @@ const Login = () => {
     const email = form.email.value;
     const pass = form.password.value;
     
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('https://anas-portfolio-server.vercel.app/login', {
         method: "POST",
         headers: {
           "Content-Type": 'application/json',
@@ -29,19 +31,25 @@ const Login = () => {
         setError(' ')
         localStorage.setItem("user", JSON.stringify(data));
         e.target.reset()
-        navigate(location?.state ? location.state : "/admin-dashboard");
+        navigate(location?.state ? location.state : "/admin-dashboard/profile");
       }
       else{
         setError(data.message)
         e.target.reset()
+        Swal.fire({
+                      position: "top",
+                      icon: "error",
+                      title: error,
+                      showConfirmButton: false,
+                      timer: 1500
+                    });
       }
       setLoading(false)
-
   };
 
   useEffect(()=>{
       if(user){
-        navigate('/admin-dashboard')
+        navigate('/admin-dashboard/profile')
       }
       
   },[user,navigate])
@@ -75,22 +83,11 @@ const Login = () => {
           type="password"
           className="flex items-center h-12 px-4 mt-2 rounded border outline-none"
         />
-        <input
-          value="Admin Login"
+        <button
           type="submit"
-          className="flex items-center justify-center h-12 px-6 mt-8 text-sm font-semibold rounded bg-teal-500 text-white"
-        />
+          className="flex items-center justify-center h-12 px-6 mt-8 text-sm font-semibold rounded bg-textGray text-white cursor-pointer"
+        >{loading ? <BounceLoader size={26} color="currentColor" /> : 'Admin Login'}</button>
       </form>
-
-      {user && (
-        <div className="mt-4">
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>Role:</strong> {user.role}</p>
-        </div>
-      )}
-
-      {error && <p className="text-red-500 mt-4">{error}</p>}
     </div>
     </div>
   );

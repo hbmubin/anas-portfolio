@@ -10,7 +10,7 @@ import card8 from "./../../assets/IMG-20240929-WA0035.jpg";
 
 const MyWorks = () => {
   return (
-    <section className="lg:pb-20 pb-0 lg:pt-80 sm:pt-[800px] md:pt-[800px] pt-[1000px] bg-bodyGray">
+    <section className="lg:pt-80 sm:pt-44 pt-60  bg-bodyGray">
       <div className="defaultContainer">
         <h1 id="works" className="title lg:pt-20 mb-8">
           My Works

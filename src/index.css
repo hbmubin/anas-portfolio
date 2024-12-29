@@ -6,7 +6,10 @@
 
 @layer components {
   .defaultContainer {
-    @apply container mx-auto xl:max-w-[1140px];
+    @apply container mx-auto xl:max-w-[1140px] px-3; 
+  }
+  .container{
+    @apply px-1
   }
   .subTitle {
     @apply lg:text-3xl text-2xl tracking-wide;
@@ -23,5 +26,39 @@
   font-weight: 600;
 }
 .bannerHeight {
-  min-height: calc(100vh - 50px);
+  @apply sm:min-h-[calc(100vh-50px)]
+}
+.aside-ul>a{
+  @apply border-b border-neutral-400 p-1.5
+}
+.aside-ul>a:last-child{
+  @apply border-0
+}
+.aside-ul .active{
+  @apply text-amber-600
+}
+.swiper-button-next{
+  @apply -right-[2px]
+}
+.swiper-button-prev{
+  @apply -left-[2px]
+}
+.swiper-button-next, .swiper-button-prev{
+  @apply text-bodyGray
+}
+.swiper-button-disabled{
+  opacity: 0.10 !important;
+}
+.swiper{
+ @apply px-7
+}
+.mySwiper {
+  align-items: stretch;
+}
+
+.swiper-slide {
+  display: flex; 
+  flex-direction: column; 
+  align-items: stretch; 
+  @apply md:h-auto
 }

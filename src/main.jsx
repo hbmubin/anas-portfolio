@@ -7,19 +7,28 @@ import Login from "./components/Login.jsx";
 import Dashboard from "./admin-dashboard/Dashboard.jsx";
 import AuthProvider from "./private/AuthProvider.jsx";
 import PrivateRoute from "./private/PrivateRoute.jsx";
+import DashboardContent from "./admin-dashboard/DashboardContent.jsx";
+import Error from "./Error.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<Error></Error>
   },
   {
     path: "/admin-login",
     element: <Login></Login>,
   },
   {
-    path: "/admin-dashboard",
+    path: "/admin-dashboard/profile",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children:[
+      {
+        path:'/admin-dashboard/profile',
+        element: <PrivateRoute><DashboardContent></DashboardContent></PrivateRoute>
+      }
+    ]
   }
 ]);
 
