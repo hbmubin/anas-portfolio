@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
-const WorkCard = ({ img, title,madeOn }) => {
+const DashboardWorkCard = ({ img, title, madeOn, id }) => {
   return (
-    <motion.article
+    <motion.a
+    href={`/admin-dashboard/works/${id}`}
       initial={{ opacity: 0.2 }}
       animate={{
         opacity: 1,
@@ -10,11 +11,11 @@ const WorkCard = ({ img, title,madeOn }) => {
         height: "auto",
         transition: { duration: 1 },
       }}
-      className="border-2 border-[#d8bf93]"
+      className="border-2 border-[#d8bf93] w-fit"
     >
-      <div className="relative group overflow-hidden aspect-video">
+      <div className="relative group overflow-hidden ">
         <img
-          className="min-w-full group-hover:scale-[1.02] duration-300"
+          className="max-w-full group-hover:scale-[1.02] duration-300"
           src={img}
           alt={title}
         />
@@ -22,12 +23,12 @@ const WorkCard = ({ img, title,madeOn }) => {
         <span className="bg-[#00000077] absolute lg:h-24 h-20 w-full bottom-0 left-0 p-4 group-hover:bg-[#00000085] duration-300 transition-colors">
           <h2 className="text-white lg:subTitle text-2xl z-50 ">{title}</h2>
           <span className="text-white lg:text-lg text-base">
-            made on {madeOn}
+            made on{madeOn}
           </span>
         </span>
       </div>
-    </motion.article>
+    </motion.a>
   );
 };
 
-export default WorkCard;
+export default DashboardWorkCard;

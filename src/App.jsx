@@ -6,15 +6,19 @@ import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import MyWorks from "./components/myWorks/MyWorks";
 import ArrowTop from "./components/ArrowTop";
+import useGlobalData from "./hooks/useGlobalData";
 
 function App() {
+
+  const {data}= useGlobalData()
+
   return (
     <>
       <Header></Header>
-      <main className="">
-        <Banner></Banner>
-        <About></About>
-        <Education></Education>
+      <main>
+        <Banner totalClients={data[0]?.totalClients} totalProjects={data[0]?.totalProjects}></Banner>
+        <About totalProjects={data[0]?.totalProjects}></About>
+        <Education reviews={data[0]?.reviews}></Education>
         <MyWorks></MyWorks>
         <Contact></Contact>
       </main>

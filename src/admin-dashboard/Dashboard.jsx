@@ -31,8 +31,8 @@ const Dashboard = () => {
         <div className="flex">
            <Aside isExpend={isExpend} handleAside={handleAside}></Aside>
            <div onClick={handleAside} className="rotate-180 fixed z-10 border bg-opacity-70 shadow-xl border-neutral-400 text-neutral-800 bg-bodyGray top-4 left-1 p-2"><IoIosArrowBack size={26} /></div>
-           <Outlet></Outlet>
-           <div onClick={handleAside} className={`${!isExpend && 'md:bg-white md:hidden bg-black fixed w-screen h-screen bg-opacity-40'}`}></div>
+           <div className={`flex-1 p-6 ${!isExpend && 'blur-sm sm:blur-none sm:pointer-events-auto pointer-events-none'}`}><Outlet></Outlet></div>
+           <div onClick={handleAside} className={`${!isExpend && 'md:bg-white md:hidden bg-black fixed w-screen h-screen bg-opacity-50 blur-sm'}`}></div>
         </div>
     );
 };

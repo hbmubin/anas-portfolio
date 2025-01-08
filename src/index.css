@@ -15,7 +15,7 @@
     @apply lg:text-3xl text-2xl tracking-wide;
   }
   .title {
-    @apply lg:text-[54px] text-4xl tracking-wide;
+    @apply lg:text-[54px] text-3xl tracking-wide;
   }
   .grayTitle {
     @apply uppercase text-xl tracking-wider text-textGray;
@@ -61,4 +61,16 @@
   flex-direction: column; 
   align-items: stretch; 
   @apply md:h-auto
+}
+.country-ul::-webkit-scrollbar{
+  @apply w-2 border-l
+}
+.country-ul::-webkit-scrollbar-track{
+  @apply bg-white
+}
+.country-ul::-webkit-scrollbar-thumb{
+  @apply bg-bodyGray
+}
+.country-ul::-webkit-scrollbar-thumb:hover{
+  @apply bg-textGray
 }

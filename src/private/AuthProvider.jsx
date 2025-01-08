@@ -1,5 +1,6 @@
-  import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { decodeToken } from "./decodedToken";
   
   export const AuthContext = createContext(null);
 
@@ -9,16 +10,21 @@ import Swal from "sweetalert2";
     // const location = useLocation()
     // const navigate = useNavigate()
 
+
+
     useEffect(() => {
-        const savedUser = localStorage.getItem("user");
-        if (savedUser) {
-            setUser(JSON.parse(savedUser));
+        const token = localStorage.getItem("token");
+        if (token) {
+          const decodedUser = decodeToken(token)
+          setUser(decodedUser)
+        } else {
+          setUser(null);
         }
         setLoading(false)
     }, [setUser]);
 
     const logOut=()=>{
-            localStorage.removeItem('user'); 
+            localStorage.removeItem('token'); 
             setUser(null); 
             Swal.fire({
               position: "top-end",

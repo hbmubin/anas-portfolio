@@ -5,7 +5,7 @@ import shopify from "./../../assets/shopify-seeklogo.svg";
 import sms from "./../../assets/Screenshot 2024-09-28 102338-Photoroom.png";
 import { Link } from "react-scroll";
 
-const About = () => {
+const About = ({totalProjects}) => {
   return (
     <section id="about" className="bg-bodyGray pt-24 pb-20">
       <div className="defaultContainer">
@@ -31,7 +31,7 @@ const About = () => {
         </div>
         <article className="bg-bodyBlack px-8 py-[34px]">
           <h1 className="text-white lg:text-[46px] text-3xl tracking-wide leading-tight">
-            I am happy to know you that 500+ projects done sucessfully!
+            I am happy to know you that {totalProjects}+ projects done sucessfully!
           </h1>
           <button className="">
             <Link

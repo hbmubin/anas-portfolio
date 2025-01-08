@@ -3,9 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../private/AuthProvider";
 import { BounceLoader } from "react-spinners";
 import Swal from "sweetalert2";
+import { decodeToken } from "../private/decodedToken";
 
 const Login = () => {
-  const {user , setUser, setLoading, loading} = useContext(AuthContext)
+  const {user, setUser, setLoading, loading} = useContext(AuthContext)
   const [error, setError] = useState(null); 
   const navigate = useNavigate();
   const location = useLocation()
@@ -27,9 +28,10 @@ const Login = () => {
       
       const data = await response.json();
       if(response.ok){
-        setUser(data)
+        const decodedUser = decodeToken(data?.token)
+        setUser(decodedUser)
+        localStorage.setItem("token", JSON.stringify(data?.token));
         setError(' ')
-        localStorage.setItem("user", JSON.stringify(data));
         e.target.reset()
         navigate(location?.state ? location.state : "/admin-dashboard/profile");
       }

@@ -1,7 +1,7 @@
 import EduList from "./EduList";
 import ReviewContainer from "./ReviewContainer";
 
-const Education = () => {
+const Education = ({reviews}) => {
   return (
     <section
       id="education"
@@ -54,7 +54,7 @@ Graduated 2023"
         <div>
           <h1 className="title text-white mb-8">What clients say </h1>
         </div>
-        <ReviewContainer></ReviewContainer>
+        <ReviewContainer reviews={reviews}></ReviewContainer>
       </div>
     </section>
   );

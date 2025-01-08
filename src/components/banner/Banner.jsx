@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 import profile from "./../../assets/afdghghjk-Photoroom.png";
 import Strengths from "./Strengths";
 
-const Banner = () => {
+const Banner = ({totalClients,totalProjects}) => {
   return (
     <div>
       <section id="home" className=" bg-bodyGray w-full font-pageFont  ">
@@ -40,7 +40,7 @@ const Banner = () => {
           <div className="lg:col-span-1 col-span-2 lg:row-span-1 row-span-2 sm:w-auto md:pt-0 pt-10 flex sm:flex-row flex-col sm:gap-10 gap-5 sm:items-end">
               <div className="md:w-1/2">
                 <h1 className="text-3xl sm:text-7xl text-[#8e7f6e] font-semibold tracking-wide">
-                  300+
+                  {totalClients}+
                 </h1>
                 <h2 className="uppercase sm:text-2xl text-xl tracking-wide text-textGray mt-2 mb-6">
                   Happy Clients
@@ -53,7 +53,7 @@ const Banner = () => {
               </div>
               <div className="md:w-1/2">
                 <h1 className="text-3xl sm:text-7xl text-[#8e7f6e] font-semibold tracking-wide">
-                  500+
+                  {totalProjects}+
                 </h1>
                 <h2 className="uppercase sm:text-2xl text-xl tracking-wide text-textGray mt-2 mb-6">
                   Projects
