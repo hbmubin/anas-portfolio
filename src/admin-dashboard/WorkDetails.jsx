@@ -3,6 +3,7 @@ import { FiUpload } from "react-icons/fi";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const image_hosting_key= import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_url= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -12,6 +13,7 @@ const WorkDetails = () => {
     const [previewImage, setPreviewImage] = useState(work.workImage);
     const navigate= useNavigate()
     const [handleLoading, setHandleLoading]= useState(false)
+    const axiosSecure = useAxiosSecure();
 
     const handleImageChange = (e) => {
       const file = e.target.files[0];
@@ -24,7 +26,7 @@ const WorkDetails = () => {
     const handleDelete = async (e) => {
       e.preventDefault();
       setHandleLoading(true);
-      const response = await fetch(`https://anas-portfolio-server.vercel.app/works/delete/${work._id}`, {
+      const response = await fetch(`http://localhost:5000/works/delete/${work._id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -58,6 +60,7 @@ const WorkDetails = () => {
         const image = form.image.files[0];
         const workTitle = form.title.value;
         const madeOn = form.madeOn.value;
+        const token = localStorage.getItem("token");
       
         if (image) {
           const formData = new FormData();
@@ -72,16 +75,8 @@ const WorkDetails = () => {
       
             if (imageData.success) {
               const updates = { workTitle, madeOn, workImage: imageData.data.url };
-      
-              const updateResponse = await fetch(`https://anas-portfolio-server.vercel.app/works/${work._id}`, {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(updates),
-              });
-              const updateData = await updateResponse.json();
-      
+              const updateResponse = await axiosSecure.patch(`/works/${work._id}`, updates);
+              
               if (updateResponse.modifiedCount== '1') {
                 Swal.fire({
                     position: "top",
@@ -122,15 +117,7 @@ const WorkDetails = () => {
           }
         } else {
             const updates = { workTitle, madeOn,};
-            const updateResponse = await fetch(`https://anas-portfolio-server.vercel.app/works/${work._id}`, {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(updates),
-            });
-            const updateData = await updateResponse.json();
-    
+            const updateResponse = await axiosSecure.patch(`/works/${work._id}`, updates);
             if (updateResponse.modifiedCount== '1') {
               Swal.fire({
                 position: "top",

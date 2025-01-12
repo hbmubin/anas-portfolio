@@ -431,7 +431,7 @@ const AddReview = () => {
       const newReview = { reviewerName, description, rating, reviewerCountry, flag };
 
           try {
-            const Response = await fetch(`https://anas-portfolio-server.vercel.app/reviews/add-new`, {
+            const Response = await fetch(`http://localhost:5000/reviews/add-new`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

@@ -38,7 +38,7 @@ const AddWork = () => {
         if (imageData.success) {
           const newWork = { workTitle, madeOn, workImage: imageData.data.url };
 
-          const Response = await fetch(`https://anas-portfolio-server.vercel.app/works/add-new`, {
+          const Response = await fetch(`http://localhost:5000/works/add-new`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

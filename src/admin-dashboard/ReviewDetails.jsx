@@ -431,7 +431,7 @@ const ReviewDetails = () => {
       const updateReview = { reviewerName, description, rating, reviewerCountry, flag };
 
           try {
-            const Response = await fetch(`https://anas-portfolio-server.vercel.app/reviews/${review.reviewerName}`, {
+            const Response = await fetch(`http://localhost:5000/reviews/${review.reviewerName}`, {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",
@@ -475,7 +475,7 @@ const handleDelete = async (e) => {
       e.preventDefault();
       setHandleLoading(true);
       try {
-        const response = await fetch(`https://anas-portfolio-server.vercel.app/reviews/delete/${review?.reviewerName}`, {
+        const response = await fetch(`http://localhost:5000/reviews/delete/${review?.reviewerName}`, {
             method: "DELETE",
           });
           const data = await response.json();

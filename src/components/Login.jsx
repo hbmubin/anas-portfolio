@@ -18,7 +18,7 @@ const Login = () => {
     const email = form.email.value;
     const pass = form.password.value;
     
-      const response = await fetch('https://anas-portfolio-server.vercel.app/login', {
+      const response = await fetch('http://localhost:5000/login', {
         method: "POST",
         headers: {
           "Content-Type": 'application/json',
