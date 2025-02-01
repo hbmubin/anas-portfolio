@@ -5,7 +5,7 @@ import { AuthContext } from '../private/AuthProvider';
 
 
 export const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', // Replace with your backend URL
+    baseURL: 'https://anas-portfolio-server.vercel.app', // Replace with your backend URL
   });
 
 const useAxiosSecure = () => {
@@ -13,11 +13,9 @@ const useAxiosSecure = () => {
   const { setUser } = useContext(AuthContext);
  
   useEffect(() => {
-    // Request interceptor to add Authorization header
     axiosSecure.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem('token'); // Retrieve token
-        console.log(token)
+        const token = localStorage.getItem('token'); 
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -28,7 +26,6 @@ const useAxiosSecure = () => {
       }
     );
 
-    // Response interceptor to handle errors
     axiosSecure.interceptors.response.use(
       (response) => response,
       (error) => {

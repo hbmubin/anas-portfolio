@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const WorkCard = ({ img, title,madeOn }) => {
   return (
@@ -13,7 +14,7 @@ const WorkCard = ({ img, title,madeOn }) => {
       className="border-2 border-[#d8bf93]"
     >
       <div className="relative group overflow-hidden aspect-video">
-        <img
+        <LazyLoadImage
           className="min-w-full group-hover:scale-[1.02] duration-300"
           src={img}
           alt={title}

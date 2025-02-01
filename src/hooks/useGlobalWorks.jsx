@@ -9,7 +9,7 @@ const useGlobalWorks = () => {
         const fetchData= async()=>{
           setLoading(true)
           setError('')
-          const response= await fetch('http://localhost:5000/works',{
+          const response= await fetch('https://anas-portfolio-server.vercel.app/works',{
             method:'GET',
             headers:{
               'Content-Type': 'application/json'

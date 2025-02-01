@@ -11,7 +11,7 @@ const useGlobalData = () => {
             setError(null); 
 
             try {
-                const response = await fetch('http://localhost:5000/data', {
+                const response = await fetch('https://anas-portfolio-server.vercel.app/data', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
